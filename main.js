@@ -1,11 +1,6 @@
 console.log("We're sorting!");
 
-const students = [
-  {
-    id: 1,
-    name: "Harry Potter",
-  }
-];
+const students = [];
 
 const renderToDom = (divId, htmlToRender) => {
   const selectedDiv = document.querySelector(divId);
@@ -24,30 +19,26 @@ const formOnDom = () => {
     </div>
   </form>`
 
-renderToDom("#app", domString);
+renderToDom("#sort-form", domString);
 }
 
-const cardsOnDom = () => {
+const cardsOnDom = (array) => {
   let domString2 = "";
-  for (const people of array) {
-  domString2 += `<div class="card mb-3" style="max-width: 480px;">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="..." class="img-fluid rounded-start" alt="...">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"></h5>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-      </div>
-    </div>
+  for (const member of array) {
+  domString2 += `<div class="card" id="cards" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
 </div>`
-
+  
   }
 
-renderToDom("#app", domString2);
-}
+renderToDom("#cards", domString2);
+
+};
 
 const showFormButton = document.querySelector("#start-sorting");
 
@@ -67,9 +58,7 @@ const newStudent = (e) => {
 
   students.push(studentObj);
   cardsOnDom(students);
-  form.reset();
+  
 }
-
-console.log(students); 
 
 form.addEventListener("submit", newStudent);
