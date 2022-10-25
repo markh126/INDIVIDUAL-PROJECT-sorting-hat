@@ -1,6 +1,11 @@
 console.log("We're sorting!");
 
-const students = [];
+const students = [
+  {
+    id: 1,
+    name: "Harry Potter",
+  }
+];
 
 const renderToDom = (divId, htmlToRender) => {
   const selectedDiv = document.querySelector(divId);
@@ -9,27 +14,22 @@ const renderToDom = (divId, htmlToRender) => {
 
 const formOnDom = () => {
   let domString = "";
-  domString += `<form>
-  <div class="mb-3" id="sort-form">
+  domString += 
+  `<form id="sort-form">
+    <div class="mb-3">
     <h5 class="form-title">Enter First Year's Name</h5>
-    <label for="student-name" class="form-label" id="name">Student Name</label>
-    <input type="name" class="form-control" id="first-year-name" placeholder="Harry Potter">
+    <input type="text" class="form-control" id="name" required>
+    <label class="fill text-center" for="floatingInput"></label>
     <button type="submit" class="btn btn-primary" id="sort">Sort!</button>
-  </div>
-</form>`
+    </div>
+  </form>`
 
 renderToDom("#app", domString);
 }
 
-
-const showFormButton = document.querySelector("#start-sorting");
-
-showFormButton.addEventListener('click', () => {
-  formOnDom();
-})
-
 const cardsOnDom = () => {
   let domString2 = "";
+  for (const people of array) {
   domString2 += `<div class="card mb-3" style="max-width: 480px;">
   <div class="row g-0">
     <div class="col-md-4">
@@ -37,17 +37,39 @@ const cardsOnDom = () => {
     </div>
     <div class="col-md-8">
       <div class="card-body">
-        <h5 class="card-title">Student Name</h5>
-        <p class="card-text">House Name</p>
+        <h5 class="card-title"></h5>
         <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
       </div>
     </div>
   </div>
 </div>`
 
+  }
+
 renderToDom("#app", domString2);
 }
 
-const showStudentButton = document.querySelector("#sort");
+const showFormButton = document.querySelector("#start-sorting");
 
-showStudentButton.addEventListener("submit",);
+showFormButton.addEventListener('click', () => {
+  formOnDom();
+})
+
+const form = document.querySelector("#sort-form");
+
+const newStudent = (e) => {
+  e.preventDefault();
+
+  const studentObj = {
+    id: students.length +1, 
+    name: document.querySelector("#name").value,
+  }
+
+  students.push(studentObj);
+  cardsOnDom(students);
+  form.reset();
+}
+
+console.log(students); 
+
+form.addEventListener("submit", newStudent);
