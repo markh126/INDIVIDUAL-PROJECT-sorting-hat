@@ -17,6 +17,8 @@ const houses = [
   },
 ];
 
+const voldemort = [];
+
 // Function to print things onto the Dom
 const renderToDom = (divId, htmlToRender) => {
   const selectedDiv = document.querySelector(divId);
@@ -46,6 +48,7 @@ const cardsOnDom = (array) => {
   domString2 += `<div class="card" text-center style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title">${member.name}</h5>
+    <p class="card-text"></p>
     <a href="#" class="btn btn-primary" id="delete--${member.id}">Expel</a>
   </div>
 </div>`
@@ -55,6 +58,21 @@ const cardsOnDom = (array) => {
 renderToDom("#cards", domString2);
 
 };
+
+const voldyArmy = (array) => {
+  let domString3 = "";
+  for (const member of array) {
+    domString3 += `<div class="card" text-center style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">${member.name}</h5>
+      <p class="card-text"></p>
+      <a href="#" class="btn btn-primary" id="delete--${member.id}">Expel</a>
+    </div>
+  </div>`
+  }
+
+  renderToDom("#voldy-cards", domString3);
+}
 
 //Event function to print forms with a button click
 const showFormButton = document.querySelector("#start-sorting");
@@ -94,5 +112,8 @@ remove.addEventListener('click', (e) => {
     const removed = students.splice(index, 1);
 
     cardsOnDom(students);
+    voldemort.push(removed);
+    console.log(voldemort);
+    voldyArmy(voldemort);
   }
 });
