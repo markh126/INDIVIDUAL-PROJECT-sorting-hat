@@ -1,9 +1,21 @@
-const students = [
+const students = [];
+
+const houses = [
   {
-    id: 1,
-    name: "Harry Potter",
-  }
+    house: "Gryffindor",
+  },
+  {
+    house: "Hufflepuff",
+  },
+  {
+    house: "Ravenclaw",
+  },
+  {
+    house: "Slytherin",
+  },
 ];
+
+console.log(students);
 
 const renderToDom = (divId, htmlToRender) => {
   const selectedDiv = document.querySelector(divId);
@@ -32,7 +44,7 @@ const cardsOnDom = (array) => {
   <img src="..." class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">${member.name}</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <p class="card-text">House</p>
     <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
 </div>`
@@ -55,8 +67,9 @@ const newStudent = (e) => {
   e.preventDefault();
 
   const studentObj = {
-    id: students.length +1, 
+    id: students.length + 1, 
     name: document.querySelector("#name").value,
+    house: houses[Math.floor(Math.random() * houses.length)],
   }
 
   students.push(studentObj);
@@ -65,5 +78,3 @@ const newStudent = (e) => {
 }
 
 form.addEventListener("submit", newStudent);
-
-console.log(students);
