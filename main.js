@@ -117,3 +117,50 @@ remove.addEventListener('click', (e) => {
     voldyArmy(voldemort);
   }
 });
+
+const filter = (array, typeString) => {
+  const typeArray = [];
+  for (const member of array) {
+    if (member.house === typeString) {
+      typeArray.push(member)
+    }
+  }
+
+  return(typeArray);
+}
+
+
+const showAllButton = document.querySelector("#All");
+const showGryffindorButton = document.querySelector("#Gryffindor");
+const showHuffelpuffButton = document.querySelector("#Huffelpuff");
+const showSlytherinButton = document.querySelector("#Slytherin");
+const showRavenclawButton = document.querySelector("#Ravenclaw");
+
+showAllButton.addEventListener('click', () => {
+  cardsOnDom(students);
+  console.log("this is the all");
+});
+
+showGryffindorButton.addEventListener('click', () => {
+  const GHouse = filter(students, 'Gryffindor');
+  cardsOnDom(GHouse);
+  console.log("Gryffindor");
+});
+
+showHuffelpuffButton.addEventListener('click', () => {
+  const HHouse = filter(students, 'Huffelpuff');
+  cardsOnDom(HHouse);
+  console.log("Huffelpuff");
+});
+
+showSlytherinButton.addEventListener('click', () => {
+  const SHouse = filter(students, 'Slytherin');
+  cardsOnDom(SHouse);
+  console.log("Slytherin");
+});
+
+showRavenclawButton.addEventListener('click', () => {
+  const RHouse = filter(students, 'Ravenclaw');
+  cardsOnDom(RHouse);
+  console.log("Ravenclaw");
+});
