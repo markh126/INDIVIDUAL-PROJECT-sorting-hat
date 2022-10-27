@@ -2,21 +2,9 @@
 const students = [];
 
 //Houses array
-const houses = [
-  {
-    house: "Gryffindor",
-  },
-  {
-    house: "Hufflepuff",
-  },
-  {
-    house: "Ravenclaw",
-  },
-  {
-    house: "Slytherin",
-  },
-];
+const houses = ["Gryffindor", "Huffelpuff", "Slytherin", "Ravenclaw"];
 
+//Voly array
 const voldemort = [];
 
 // Function to print things onto the Dom
@@ -48,7 +36,7 @@ const cardsOnDom = (array) => {
   domString2 += `<div class="card" text-center style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title">${member.name}</h5>
-    <p class="card-text"></p>
+    <p class="card-text">${member.house}</p>
     <a href="#" class="btn btn-primary" id="delete--${member.id}">Expel</a>
   </div>
 </div>`
@@ -65,8 +53,7 @@ const voldyArmy = (array) => {
     domString3 += `<div class="card" text-center style="width: 18rem;">
     <div class="card-body">
       <h5 class="card-title">${member.name}</h5>
-      <p class="card-text"></p>
-      <a href="#" class="btn btn-primary" id="delete--${member.id}">Expel</a>
+      <p class="card-text">Death Eater</p>
     </div>
   </div>`
   }
@@ -114,7 +101,7 @@ remove.addEventListener('click', (e) => {
     cardsOnDom(students);
     voldemort.push(removed);
     console.log(voldemort);
-    voldyArmy(voldemort);
+    voldyArmy(voldemort.flat());
   }
 });
 
