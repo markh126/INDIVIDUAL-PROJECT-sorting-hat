@@ -5,6 +5,10 @@ https://marksortinghatproject.netlify.app/#
 
 git@github.com:markh126/INDIVIDUAL-PROJECT-sorting-hat.git
 
+USER INFO
+- Ideal user for this is an instructor. 
+- Great for someone who wants to see what Hogwarts house they would be sorted into!
+
 FEATURES
 - When a new student is added an object should be created and that object should be pushed into an array of students that then prints to the DOM.
 - Card Ordering: Sort the student cards by some criteria (i.e. alphabetically by name, by house)
