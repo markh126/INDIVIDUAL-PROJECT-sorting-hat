@@ -129,13 +129,14 @@ const filter = (array, typeString) => {
 }
 
 
-/* const showAllButton = document.querySelector("#All");
+const showAllButton = document.querySelector("#All");
 const showGryffindorButton = document.querySelector("#Gryffindor");
 const showHuffelpuffButton = document.querySelector("#Huffelpuff");
 const showSlytherinButton = document.querySelector("#Slytherin");
 const showRavenclawButton = document.querySelector("#Ravenclaw");
-*/
 
+
+/*
 const filterRow = () => {
   const filters = document.querySelector("#filter");
 
@@ -151,8 +152,9 @@ const filterRow = () => {
     }
   })
 }
+*/
 
-/* showAllButton.addEventListener('click', () => {
+showAllButton.addEventListener('click', () => {
   cardsOnDom(students);
   console.log("this is the all");
 });
@@ -180,4 +182,3 @@ showRavenclawButton.addEventListener('click', () => {
   cardsOnDom(RHouse);
   console.log("Ravenclaw");
 });
-*/
