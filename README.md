@@ -18,7 +18,6 @@ Project Board Link:
 https://docs.google.com/presentation/d/11xue6YARmSlGlZMg8TwKklgpYJ2aaDUbHk3WiK-S8XY/edit?usp=sharing
 
 Code Snippet that I found most interesting:
-
 This is for creating an ID for each object in an array.
 <img width="417" alt="Screen Shot 2022-10-29 at 9 48 57 AM" src="https://user-images.githubusercontent.com/114036621/198838015-d57827df-e9cf-442e-95d2-e463d4974dfc.png">
 
