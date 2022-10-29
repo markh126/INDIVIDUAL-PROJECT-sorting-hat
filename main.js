@@ -129,13 +129,29 @@ const filter = (array, typeString) => {
 }
 
 
-const showAllButton = document.querySelector("#All");
-const showGryffindorButton = document.querySelector("#Gryffindor");
-const showHuffelpuffButton = document.querySelector("#Huffelpuff");
-const showSlytherinButton = document.querySelector("#Slytherin");
-const showRavenclawButton = document.querySelector("#Ravenclaw");
+// const showAllButton = document.querySelector("#All");
+//const showGryffindorButton = document.querySelector("#Gryffindor");
+// const showHuffelpuffButton = document.querySelector("#Huffelpuff");
+// const showSlytherinButton = document.querySelector("#Slytherin");
+// const showRavenclawButton = document.querySelector("#Ravenclaw");
 
-showAllButton.addEventListener('click', () => {
+const filterRow = () => {
+  const filters = document.querySelector("#filter");
+
+  filters.addEventListener('click', () => {
+    if (e.target.id.includes("filter--")) {
+      const [, id] = e.target.id.split("--");
+
+      const numId = Number(id);
+
+      const houses = students.filter(member => member.houses === houses(numId));
+
+      cardsOnDom(houses);
+    }
+  })
+}
+
+/* showAllButton.addEventListener('click', () => {
   cardsOnDom(students);
   console.log("this is the all");
 });
@@ -163,3 +179,4 @@ showRavenclawButton.addEventListener('click', () => {
   cardsOnDom(RHouse);
   console.log("Ravenclaw");
 });
+*/
