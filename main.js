@@ -61,6 +61,18 @@ const voldyArmy = (array) => {
   renderToDom("#voldy-cards", domString3);
 }
 
+const createId = (array) => {
+  if (array.length) {
+    const idArray = [];
+    for (const el of array) {
+      idArray.push(el.id);
+    }
+    return Math.max(...idArray) + 1;
+  } else {
+    return 0;
+  }
+}
+
 //Event function to print forms with a button click
 const showFormButton = document.querySelector("#start-sorting");
 
@@ -75,7 +87,7 @@ const newStudent = (e) => {
   e.preventDefault();
 
   const studentObj = {
-    id: students.length + 1, 
+    id: createId(students), 
     name: document.querySelector("#name").value,
     house: houses[Math.floor(Math.random() * houses.length)],
   }
