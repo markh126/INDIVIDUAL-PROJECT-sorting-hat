@@ -129,11 +129,12 @@ const filter = (array, typeString) => {
 }
 
 
-// const showAllButton = document.querySelector("#All");
-//const showGryffindorButton = document.querySelector("#Gryffindor");
-// const showHuffelpuffButton = document.querySelector("#Huffelpuff");
-// const showSlytherinButton = document.querySelector("#Slytherin");
-// const showRavenclawButton = document.querySelector("#Ravenclaw");
+/* const showAllButton = document.querySelector("#All");
+const showGryffindorButton = document.querySelector("#Gryffindor");
+const showHuffelpuffButton = document.querySelector("#Huffelpuff");
+const showSlytherinButton = document.querySelector("#Slytherin");
+const showRavenclawButton = document.querySelector("#Ravenclaw");
+*/
 
 const filterRow = () => {
   const filters = document.querySelector("#filter");
