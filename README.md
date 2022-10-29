@@ -26,3 +26,7 @@ This is for creating an ID for each object in an array.
 <img width="1251" alt="Screen Shot 2022-10-28 at 10 15 05 PM" src="https://user-images.githubusercontent.com/114036621/198799509-94bfa9df-9f40-4589-9a6c-a4f92a89dd74.png">
 <img width="1252" alt="Screen Shot 2022-10-28 at 10 15 23 PM" src="https://user-images.githubusercontent.com/114036621/198799541-b4d381f4-74a4-400b-a70b-9086e334c554.png">
 
+Contributors -
+Mark Hamilton(Me): https://github.com/markh126
+
+Special shout-out to my group for helping talk through some things.
