@@ -2,21 +2,9 @@
 const students = [];
 
 //Houses array
-const houses = [
-  {
-    house: "Gryffindor",
-  },
-  {
-    house: "Hufflepuff",
-  },
-  {
-    house: "Ravenclaw",
-  },
-  {
-    house: "Slytherin",
-  },
-];
+const houses = ["Gryffindor", "Huffelpuff", "Slytherin", "Ravenclaw"];
 
+//Voly array
 const voldemort = [];
 
 // Function to print things onto the Dom
@@ -48,7 +36,7 @@ const cardsOnDom = (array) => {
   domString2 += `<div class="card" text-center style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title">${member.name}</h5>
-    <p class="card-text"></p>
+    <p class="card-text">${member.house}</p>
     <a href="#" class="btn btn-primary" id="delete--${member.id}">Expel</a>
   </div>
 </div>`
@@ -65,13 +53,24 @@ const voldyArmy = (array) => {
     domString3 += `<div class="card" text-center style="width: 18rem;">
     <div class="card-body">
       <h5 class="card-title">${member.name}</h5>
-      <p class="card-text"></p>
-      <a href="#" class="btn btn-primary" id="delete--${member.id}">Expel</a>
+      <p class="card-text">Death Eater</p>
     </div>
   </div>`
   }
 
   renderToDom("#voldy-cards", domString3);
+}
+
+const createId = (array) => {
+  if (array.length) {
+    const idArray = [];
+    for (const el of array) {
+      idArray.push(el.id);
+    }
+    return Math.max(...idArray) + 1;
+  } else {
+    return 0;
+  }
 }
 
 //Event function to print forms with a button click
@@ -88,7 +87,7 @@ const newStudent = (e) => {
   e.preventDefault();
 
   const studentObj = {
-    id: students.length + 1, 
+    id: createId(students), 
     name: document.querySelector("#name").value,
     house: houses[Math.floor(Math.random() * houses.length)],
   }
@@ -114,6 +113,53 @@ remove.addEventListener('click', (e) => {
     cardsOnDom(students);
     voldemort.push(removed);
     console.log(voldemort);
-    voldyArmy(voldemort);
+    voldyArmy(voldemort.flat());
   }
+});
+
+const filter = (array, typeString) => {
+  const typeArray = [];
+  for (const member of array) {
+    if (member.house === typeString) {
+      typeArray.push(member)
+    }
+  }
+
+  return(typeArray);
+}
+
+
+const showAllButton = document.querySelector("#All");
+const showGryffindorButton = document.querySelector("#Gryffindor");
+const showHuffelpuffButton = document.querySelector("#Huffelpuff");
+const showSlytherinButton = document.querySelector("#Slytherin");
+const showRavenclawButton = document.querySelector("#Ravenclaw");
+
+showAllButton.addEventListener('click', () => {
+  cardsOnDom(students);
+  console.log("this is the all");
+});
+
+showGryffindorButton.addEventListener('click', () => {
+  const GHouse = filter(students, 'Gryffindor');
+  cardsOnDom(GHouse);
+  console.log("Gryffindor");
+});
+
+showHuffelpuffButton.addEventListener('click', () => {
+  const HHouse = filter(students, 'Huffelpuff');
+  cardsOnDom(HHouse);
+  console.log("Huffelpuff");
+});
+
+showSlytherinButton.addEventListener('click', () => {
+  const SHouse = filter(students, 'Slytherin');
+  cardsOnDom(SHouse);
+  console.log("Slytherin");
+});
+
+showRavenclawButton.addEventListener('click', () => {
+  const RHouse = filter(students, 'Ravenclaw');
+  cardsOnDom(RHouse);
+  console.log("Ravenclaw");
 });
